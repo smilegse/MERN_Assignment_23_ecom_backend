@@ -150,8 +150,6 @@ const ListBySmilierService = async (req) => {
 
 
 const DetailsService = async (req) => {
-
-
     try {
         let ProductID=new ObjectId(req.params.ProductID);
         let MatchStage={$match:{_id:ProductID}}
@@ -163,7 +161,6 @@ const DetailsService = async (req) => {
         let UnwindBrandStage={$unwind:"$brand"}
         let UnwindCategoryStage={$unwind:"$category"}
         let UnwindDetailsStage={$unwind:"$details"}
-
 
         let ProjectionStage = {$project:{'brand._id':0,'category._id':0,'categoryID':0,'brandID':0}}
 
